@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="46dp" />
+
+
+    <TextView
+        android:id="@+id/tv_reset_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_white_gray"
+        android:clickable="true"
+        android:padding="@dimen/normal_padding"
+        android:gravity="center"
+        android:text="修改密码"
+        android:textSize="@dimen/text_large" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/btn_white_gray"
+        android:clickable="true"
+        android:padding="@dimen/normal_padding"
+        android:gravity="center"
+        android:text="关于本软件"
+        android:textSize="@dimen/text_large" />
+
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_red_gray"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/normal_padding"
+        android:text="退出登录"
+        android:visibility="gone"
+        android:textColor="@color/text_1"
+        android:textSize="@dimen/text_large" />
+
+</LinearLayout>

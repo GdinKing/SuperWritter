@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg">
+
+
+    <include
+        android:id="@+id/actionBar"
+        layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp" />
+
+
+    <cn.com.minstone.novel.view.MyEditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/actionBar"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:lineSpacingExtra="6dp"
+        android:gravity="start"
+        android:textColor="@color/black"
+        android:textSize="16sp"></cn.com.minstone.novel.view.MyEditText>
+
+
+
+</RelativeLayout>

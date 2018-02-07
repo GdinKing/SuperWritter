@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg">
+
+    <ExpandableListView
+        android:id="@+id/list_chapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:childDivider="@null"
+        android:groupIndicator="@null"
+        android:divider="@null"
+        android:background="@null"
+        android:listSelector="@color/white"
+        android:gravity="center"
+        android:scrollbars="none"></ExpandableListView>
+
+
+
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:drawableTop="@drawable/ic_empty"
+        android:textColor="#bfbfbf"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@null"
+        android:drawablePadding="5dp"
+        android:text="暂无章节"/>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">超级写手</string>
+
+
+    <string-array name="novelType">
+        <item>仙侠</item>
+        <item>修真 </item>
+        <item>都市</item>
+        <item>言情</item>
+        <item>武侠</item>
+        <item>战争</item>
+        <item>宫廷</item>
+        <item>穿越</item>
+        <item>传记</item>
+        <item>纪实</item>
+        <item>其他</item>
+    </string-array>
+</resources>
