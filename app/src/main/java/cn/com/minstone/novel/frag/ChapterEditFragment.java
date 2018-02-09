@@ -1,11 +1,14 @@
 package cn.com.minstone.novel.frag;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+
+import com.mylhyl.circledialog.CircleDialog;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
@@ -46,6 +49,7 @@ public class ChapterEditFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     protected void initView() {
+
         chapter = (Chapter) getArguments().getSerializable("chapter");
         if (chapter == null) {
             pop();
@@ -53,8 +57,11 @@ public class ChapterEditFragment extends BaseFragment implements View.OnClickLis
         }
         setTitle(chapter.getName());
         enableBack();
+        tvRightSecond.setVisibility(View.VISIBLE);
+        tvRightSecond.setOnClickListener(this);
         tvRight.setVisibility(View.VISIBLE);
-        tvRight.setText("保存");
+        tvRightSecond.setText("保存");
+        tvRight.setText("发布");
         tvRight.setOnClickListener(this);
         ivBack.setOnClickListener(this);
         etContent = rootView.findViewById(R.id.et_content);
@@ -115,32 +122,51 @@ public class ChapterEditFragment extends BaseFragment implements View.OnClickLis
                     return;
                 }
                 DisplayUtil.hideSoftKeyboard(getActivity(), etContent);
-                saveContent();
+                showPublishDialog();
+                break;
+            case R.id.tv_right_second:
+                DisplayUtil.hideSoftKeyboard(getActivity(), etContent);
+                saveOrPublish(false);
                 break;
 
         }
     }
 
+    /**
+     * 弹出发布提示
+     */
+    private void showPublishDialog() {
+        new CircleDialog.Builder(getActivity())
+                .setTitle("提示")
+                .setTitleColor(ContextCompat.getColor(getActivity(), R.color.blue))
+                .setText("是否发布该章节?")
+                .setNegative("取消", null)
+                .setPositive("确定", view -> {
+                    saveOrPublish(true);
+                }).show();
+
+    }
 
     /**
-     * 保存正文
+     * 保存/发布
      */
-    private void saveContent() {
+    private void saveOrPublish(boolean isPublish) {
         showLoading("保存中");
         Chapter c = new Chapter();
         c.setContent(editContent);
+        c.setPublish(isPublish);
         c.setCount(editContent.replaceAll("\\s*", "").length());
         c.update(chapter.getObjectId(), new UpdateListener() {
             @Override
             public void done(BmobException e) {
                 hideLoading();
                 if (e != null) {
-                    showToast("保存失败");
+                    showToast(isPublish ? "发布失败" : "保存失败");
                     return;
                 }
                 EventBusActivityScope.getDefault(getActivity()).post(new ChapterUpdateEvent());
                 pop();
-                showToast("保存成功");
+                showToast(isPublish ? "发布成功" : "保存成功");
             }
         });
 

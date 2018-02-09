@@ -27,6 +27,7 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected TextView tvTitle;
     protected TextView tvRight;
+    protected TextView tvRightSecond;
     protected TextView tvLeft;
     protected TextView tvSubTitle;
     protected ImageView ivBack;
@@ -60,6 +61,7 @@ public abstract class BaseFragment extends SupportFragment {
         tvTitle = rootView.findViewById(R.id.tv_title);
         ivBack = rootView.findViewById(R.id.iv_back);
         ivRight = rootView.findViewById(R.id.iv_right);
+        tvRightSecond = rootView.findViewById(R.id.tv_right_second);
         tvRight = rootView.findViewById(R.id.tv_right);
         tvSubTitle = rootView.findViewById(R.id.tv_sub_title);
     }

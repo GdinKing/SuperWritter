@@ -156,6 +156,7 @@ public class NovelDescFragment extends BaseFragment implements View.OnClickListe
     }
 
 
+    //TODO BmobSDk有bug，统计不了字数
     private void loadCount() {
         BmobQuery<Chapter> query = new BmobQuery<>();
         query.sum(new String[]{"count"});

@@ -12,10 +12,11 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:padding="5dp"
         android:background="@null"
+        android:padding="5dp"
         android:src="@drawable/ic_back"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
     <TextView
         android:id="@+id/tv_left"
         android:layout_width="wrap_content"
@@ -23,26 +24,30 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:padding="5dp"
-        android:visibility="gone"
         android:background="@null"
+        android:padding="5dp"
         android:textColor="@color/text_1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="gone" />
+
     <LinearLayout
+        android:id="@+id/ll_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_centerInParent="true"
         android:background="@null"
-        android:layout_centerInParent="true">
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:maxLength="8"
-            android:ellipsize="middle"
             android:background="@null"
+            android:ellipsize="middle"
+            android:maxLength="10"
+            android:singleLine="true"
             android:textColor="@color/text_1"
             android:textSize="17sp" />
 
@@ -50,10 +55,10 @@
             android:id="@+id/tv_sub_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11sp"
             android:background="@null"
-            android:visibility="gone"
-            android:textColor="@color/text_1" />
+            android:textColor="@color/text_1"
+            android:textSize="11sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <ImageView
@@ -63,9 +68,9 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
+        android:background="@null"
         android:padding="5dp"
         android:src="@drawable/icon_add_white"
-        android:background="@null"
         android:visibility="gone" />
 
     <TextView
@@ -75,11 +80,24 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
-        android:padding="5dp"
         android:background="@null"
+        android:padding="5dp"
         android:text="新增"
         android:textColor="@color/text_1"
         android:textSize="16sp"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/tv_right_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/tv_right"
+        android:background="@null"
+        android:padding="5dp"
+        android:text="新增"
+        android:textColor="@color/text_1"
+        android:textSize="16sp"
+        android:visibility="gone" />
 </RelativeLayout>

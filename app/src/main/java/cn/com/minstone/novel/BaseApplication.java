@@ -3,6 +3,7 @@ package cn.com.minstone.novel;
 import android.app.Application;
 
 import cn.bmob.v3.Bmob;
+import cn.com.minstone.novel.util.CrashLogUtil;
 import me.yokeyword.fragmentation.Fragmentation;
 
 /***
@@ -23,5 +24,8 @@ public class BaseApplication extends Application {
                 .install();
 
         Bmob.initialize(this, "8da43f27f56bc2571f806f2b937a52a5");
+
+        CrashLogUtil handler = CrashLogUtil.getInstance();
+        handler.init(getApplicationContext());
     }
 }

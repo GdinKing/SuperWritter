@@ -1,6 +1,5 @@
 package cn.com.minstone.novel.frag;
 
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
@@ -83,7 +82,6 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
                 .setTitle("提示")
                 .setTitleColor(ContextCompat.getColor(getActivity(), R.color.blue))
                 .setText("是否退出登录?")
-                .setTextColor(Color.BLACK)
                 .setNegative("取消", null)
                 .setPositive("确定", view -> {
                     BmobUser.logOut();
@@ -92,5 +90,11 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
                     pop();
                 }).show();
 
+    }
+
+    @Override
+    public boolean onBackPressedSupport() {
+        pop();
+        return true;
     }
 }

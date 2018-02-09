@@ -72,8 +72,8 @@ public class NovelAddFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initView() {
-        ivBack.setVisibility(View.VISIBLE);
         setTitle("创建小说");
+        enableBack();
         ivBack.setOnClickListener(this);
         etName = rootView.findViewById(R.id.et_name);
         etIntroduction = rootView.findViewById(R.id.et_introduction);
