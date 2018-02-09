@@ -13,9 +13,8 @@ import java.util.List;
 import cn.com.minstone.novel.base.BaseFragment;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * Fragment适配器
+ *
  * @since 2018/1/31
  * @author king
  */

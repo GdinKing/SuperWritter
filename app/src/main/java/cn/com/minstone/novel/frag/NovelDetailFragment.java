@@ -32,17 +32,13 @@ import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 小说详情界面，管理两个子Fragment
+ *
  * @since 2018/1/30
  * @author king
  */
 
 public class NovelDetailFragment extends BaseFragment implements View.OnClickListener {
-
-    public static final int TYPE_ADD_BOOK = 0;
-    public static final int TYPE_ADD_CHAPTER = 1;
 
     private TabLayout tabLayout;
     private ViewPager vpContainer;
@@ -143,6 +139,9 @@ public class NovelDetailFragment extends BaseFragment implements View.OnClickLis
                 .show();
     }
 
+    /**
+     * 添加分卷对话框
+     */
     private void showAddBook() {
 
         new CircleDialog.Builder(getActivity())
@@ -161,7 +160,10 @@ public class NovelDetailFragment extends BaseFragment implements View.OnClickLis
 
     }
 
-
+    /**
+     * 添加分卷
+     * @param name
+     */
     private void addBook(String name) {
         showLoading();
         Book book = new Book();

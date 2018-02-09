@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
+ * SharedPreferences工具类
+ *
  * @author king
  * @since 2018/01/31
  */

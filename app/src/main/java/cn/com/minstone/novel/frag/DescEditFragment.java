@@ -15,9 +15,8 @@ import cn.com.minstone.novel.util.DisplayUtil;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 编辑作品简介/角色设定/故事大纲界面
+ *
  * @since 2018/2/2
  * @author king
  */

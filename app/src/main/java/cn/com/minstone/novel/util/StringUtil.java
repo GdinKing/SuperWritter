@@ -1,9 +1,8 @@
 package cn.com.minstone.novel.util;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 字符串工具类
+ *
  * @since 2018/2/2
  * @author king
  */
@@ -16,6 +15,11 @@ public class StringUtil {
 
     private static String STR = "abcdefghijklmnopqrstuvwxyz0123456789";
 
+    /**
+     * 生成随机字符
+     * @param length
+     * @return
+     */
     public static String getRandomString(int length) {
         StringBuffer sb = new StringBuffer();
         int len = STR.length();
@@ -25,11 +29,20 @@ public class StringUtil {
         return sb.toString();
     }
 
-    // 判断一个字符是否是中文
+    /**
+     * 判断一个字符是否是中文
+     * @param c
+     * @return
+     */
     public static boolean isChinese(char c) {
         return c >= 0x4E00 &&  c <= 0x9FA5;// 根据字节码判断
     }
-    // 判断一个字符串是否含有中文
+
+    /**
+     * 判断一个字符串是否含有中文
+     * @param str
+     * @return
+     */
     public static boolean isChinese(String str) {
         if (str == null) return false;
         for (char c : str.toCharArray()) {

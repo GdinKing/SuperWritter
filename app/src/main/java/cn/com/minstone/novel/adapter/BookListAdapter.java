@@ -13,9 +13,8 @@ import cn.com.minstone.novel.R;
 import cn.com.minstone.novel.bean.Book;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 分卷列表适配器
+ *
  * @since 2018/1/30
  * @author king
  */

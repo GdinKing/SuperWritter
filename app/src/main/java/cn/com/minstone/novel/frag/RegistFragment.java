@@ -14,10 +14,8 @@ import cn.com.minstone.novel.bean.User;
 import cn.com.minstone.novel.util.StringUtil;
 
 /***
- * 注册界面 <br>
+ * 注册界面
  *
- * 描述：
- * 最近修改时间：
  * @since 2018/1/30
  * @author king
  */
@@ -110,6 +108,9 @@ public class RegistFragment extends BaseFragment implements View.OnClickListener
         }
     }
 
+    /**
+     * 注册用户
+     */
     private void registUser() {
         showLoading();
         User user = new User();

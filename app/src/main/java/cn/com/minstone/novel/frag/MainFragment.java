@@ -13,9 +13,8 @@ import cn.com.minstone.novel.base.BaseFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 主Fragment，管理首页两个Tab
+ *
  * @since 2018/1/30
  * @author king
  */
@@ -59,23 +58,19 @@ public class MainFragment extends BaseFragment implements RadioGroup.OnCheckedCh
 
     @Override
     protected void initData() {
-//        User user = BmobUser.getCurrentUser(User.class);
-//        if(user!=null){
-//            BmobUser.fetchUserJsonInfo(new FetchUserInfoListener<String>() {
-//                @Override
-//                public void done(String s, BmobException e) {
-//                }
-//            });
-//        }
+
         initFragment();
     }
 
+    /**
+     * 初始化首页两个Tab
+     */
     private void initFragment() {
 
         SupportFragment firstFragment = findChildFragment(NovelListFragment.class);
         if (firstFragment == null) {
-            mFragments[0] = NovelListFragment.newInstance();
-            mFragments[1] = MyFragment.newInstance();
+            mFragments[0] = NovelListFragment.newInstance();//书架
+            mFragments[1] = MyFragment.newInstance();//我的
             loadMultipleRootFragment(R.id.container, 0,
                     mFragments[0],
                     mFragments[1]);
@@ -100,6 +95,10 @@ public class MainFragment extends BaseFragment implements RadioGroup.OnCheckedCh
 
     }
 
+    /**
+     * 打开Fragment，类似startActivity
+     * @param fragment
+     */
     public void openFragment(SupportFragment fragment){
         start(fragment);
     }

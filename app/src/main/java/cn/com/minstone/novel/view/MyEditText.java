@@ -8,9 +8,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 自定义EditText
+ *
  * @since 2018/2/1
  * @author king
  */

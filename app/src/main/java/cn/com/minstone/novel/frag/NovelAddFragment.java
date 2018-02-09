@@ -37,9 +37,8 @@ import cn.com.minstone.novel.util.DisplayUtil;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 新增小说界面
+ *
  * @since 2018/1/30
  * @author king
  */

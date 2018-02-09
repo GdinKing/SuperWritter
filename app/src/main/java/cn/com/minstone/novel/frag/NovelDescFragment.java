@@ -25,10 +25,9 @@ import cn.com.minstone.novel.event.DescUpdateEvent;
 import cn.com.minstone.novel.util.ImageUtil;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
-/***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+/**
+ * 小说相关界面
+ *
  * @since 2018/1/31
  * @author king
  */
@@ -143,13 +142,13 @@ public class NovelDescFragment extends BaseFragment implements View.OnClickListe
                 }
                 tvOutline.setVisibility(outlineVisible == View.GONE ? View.VISIBLE : View.GONE);
                 break;
-            case R.id.tv_intro:
+            case R.id.tv_intro://作品简介
                 ((NovelDetailFragment) getParentFragment()).openFragment(DescEditFragment.newInstance(novel, DescEditFragment.TYPE_INTRODUCTION));
                 break;
-            case R.id.tv_role:
+            case R.id.tv_role://角色设定
                 ((NovelDetailFragment) getParentFragment()).openFragment(DescEditFragment.newInstance(novel, DescEditFragment.TYPE_ROLE));
                 break;
-            case R.id.tv_outline:
+            case R.id.tv_outline://故事大纲
                 ((NovelDetailFragment) getParentFragment()).openFragment(DescEditFragment.newInstance(novel, DescEditFragment.TYPE_OUTLINE));
                 break;
         }

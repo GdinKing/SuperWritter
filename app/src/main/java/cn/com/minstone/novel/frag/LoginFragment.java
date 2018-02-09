@@ -14,10 +14,8 @@ import cn.com.minstone.novel.event.LoginEvent;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 登录界面 <br>
+ * 登录界面
  *
- * 描述：
- * 最近修改时间：
  * @since 2018/1/30
  * @author king
  */
@@ -79,7 +77,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
                 break;
 
             case R.id.tv_reset_password:
-
+                //TODO 忘记密码，未实现
                 break;
 
             case R.id.tv_regist:

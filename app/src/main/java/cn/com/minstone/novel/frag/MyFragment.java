@@ -22,9 +22,8 @@ import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 我的
+ *
  * @since 2018/1/29
  * @author king
  */

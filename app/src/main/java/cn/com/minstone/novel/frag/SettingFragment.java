@@ -14,9 +14,8 @@ import cn.com.minstone.novel.event.LoginEvent;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 设置界面
+ *
  * @since 2018/1/31
  * @author king
  */
@@ -76,6 +75,9 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
         }
     }
 
+    /**
+     * 退出登录对话框
+     */
     private void showLogoutDialog() {
 
         new CircleDialog.Builder(getActivity())

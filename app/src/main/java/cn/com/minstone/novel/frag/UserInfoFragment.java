@@ -40,9 +40,8 @@ import cn.com.minstone.novel.util.ImageUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 用户信息界面
+ *
  * @since 2018/1/31
  * @author king
  */
@@ -122,6 +121,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         }
     }
 
+    /**
+     * 头像文件
+     */
     private void generateFile() {
         File file = new File(getActivity().getExternalCacheDir(), "avatar.jpg");
         try {
@@ -141,7 +143,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         return true;
     }
 
-
+    /**
+     * 修改笔名对话框
+     */
     private void showUpdateNickDialog() {
 
         new CircleDialog.Builder(getActivity())
@@ -167,6 +171,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     }
 
+    /**
+     * 修改笔名
+     * @param nick
+     */
     private void updateNick(String nick) {
         User newUser = new User();
         newUser.setNick(nick);
@@ -184,6 +192,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         });
     }
 
+    /**
+     * 修改签名对话框
+     */
     private void showUpdateSignDialog() {
 
         new CircleDialog.Builder(getActivity())
@@ -215,6 +226,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     }
 
+    /**
+     * 修改签名
+     * @param sign
+     */
     private void updateSign(String sign) {
         User newUser = new User();
         newUser.setSign(sign);
@@ -232,6 +247,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     }
 
 
+    /**
+     * 选择头像对话框
+     */
     private void showUpdateAvatarDialog() {
         final String[] items = {"拍照", "从相册选择"};
         new CircleDialog.Builder(getActivity())
@@ -322,7 +340,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                     showToast("上传头像失败");
                     return;
                 }
-                updateAvatar(bmobFile);
+                updateAvatarInfo(bmobFile);
             }
 
             @Override
@@ -332,8 +350,11 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         });
     }
 
-    private void updateAvatar(BmobFile avatar) {
-
+    /**
+     * 上传完毕，更新数据库记录
+     * @param avatar
+     */
+    private void updateAvatarInfo(BmobFile avatar) {
         User user = new User();
         user.setAvatar(avatar);
         user.update(currentUser.getObjectId(), new UpdateListener() {

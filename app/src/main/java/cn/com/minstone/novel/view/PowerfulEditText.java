@@ -28,7 +28,9 @@ import android.view.inputmethod.EditorInfo;
 
 import cn.com.minstone.novel.R;
 
-
+/**
+ * 带显示隐藏密码和清除按钮的EditText
+ */
 public class PowerfulEditText extends AppCompatEditText {
 
     private static final String TAG = "PowerfulEditText.java";

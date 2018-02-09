@@ -2,7 +2,6 @@ package cn.com.minstone.novel.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -15,9 +14,8 @@ import java.io.OutputStream;
 
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 图片操作工具类
+ *
  * @since 2018/1/9
  * @author king
  */
@@ -47,17 +45,6 @@ public class ImageUtil {
                     .into(imageView);
         }
 
-    }
-
-    public static boolean isGif(String path) {
-
-        if (TextUtils.isEmpty(path)) {
-            return false;
-        }
-        if (path.endsWith(".gif")) {
-            return true;
-        }
-        return false;
     }
 
     /**

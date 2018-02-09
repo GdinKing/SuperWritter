@@ -12,9 +12,8 @@ import java.util.List;
 import cn.com.minstone.novel.R;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 小说类型适配器
+ *
  * @since 2018/1/30
  * @author king
  */

@@ -10,6 +10,9 @@ package cn.com.minstone.novel.config;
 
 public class AppConfig {
 
+    /**
+     * 夜间模式key
+     */
     public static final String NIGHT_MODE_KEY = "night_mode_key";
 
 }

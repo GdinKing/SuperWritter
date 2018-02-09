@@ -25,13 +25,11 @@ import cn.com.minstone.novel.util.DisplayUtil;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 新增章节界面
+ *
  * @since 2018/1/31
  * @author king
  */
-
 public class ChapterAddFragment extends BaseFragment implements View.OnClickListener {
 
 

@@ -21,9 +21,8 @@ import cn.com.minstone.novel.view.MyEditText;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 编辑章节界面
+ *
  * @since 2018/2/1
  * @author king
  */

@@ -15,9 +15,8 @@ import cn.com.minstone.novel.bean.BookChapter;
 import cn.com.minstone.novel.bean.Chapter;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 章节列表适配器
+ *
  * @since 2018/1/31
  * @author king
  */
@@ -178,18 +177,34 @@ public class ChapterAdapter extends BaseExpandableListAdapter {
         }
     }
 
+    /**
+     * 子Item点击事件
+     * @param childItemClickListener
+     */
     public void setChildItemClickListener(OnChildItemClickListener childItemClickListener) {
         this.childItemClickListener = childItemClickListener;
     }
 
+    /**
+     * 子Item长按事件
+     * @param childItemLongClickListener
+     */
     public void setChildItemLongClickListener(OnChildItemLongClickListener childItemLongClickListener) {
         this.childItemLongClickListener = childItemLongClickListener;
     }
 
+    /**
+     * 父Item点击事件
+     * @param groupItemClickListener
+     */
     public void setGroupItemClickListener(OnGroupItemClickListener groupItemClickListener) {
         this.groupItemClickListener = groupItemClickListener;
     }
 
+    /**
+     * 父Item长按事件
+     * @param groupItemLongClickListener
+     */
     public void setGroupItemLongClickListener(OnGroupItemLongClickListener groupItemLongClickListener) {
         this.groupItemLongClickListener = groupItemLongClickListener;
     }

@@ -8,9 +8,8 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 自定义崩溃处理日志类，用于捕获崩溃异常
+ *
  * @since 2018/2/9
  * @author king
  */

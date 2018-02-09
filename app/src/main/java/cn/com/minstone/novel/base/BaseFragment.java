@@ -17,9 +17,8 @@ import cn.com.minstone.novel.util.SPUtil;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 基础的Fragment，封装一些通用的方法，所有Fragment继承自这个
+ *
  * @since 2018/1/29
  * @author king
  */
@@ -37,6 +36,9 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected ProgressDialog progressDialog;
 
+    /**
+     * 是否夜间模式
+     */
     protected boolean isNightMode = false;
 
     @Override
@@ -56,6 +58,9 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
 
+    /**
+     * 初始化标题栏视图
+     */
     protected void initTitle() {
         tvLeft = rootView.findViewById(R.id.tv_left);
         tvTitle = rootView.findViewById(R.id.tv_title);
@@ -66,6 +71,10 @@ public abstract class BaseFragment extends SupportFragment {
         tvSubTitle = rootView.findViewById(R.id.tv_sub_title);
     }
 
+    /**
+     * 设置标题
+     * @param title
+     */
     protected void setTitle(String title) {
         if (tvTitle == null) {
             return;
@@ -76,6 +85,10 @@ public abstract class BaseFragment extends SupportFragment {
         tvTitle.setText(title);
     }
 
+    /**
+     * 设置副标题
+     * @param title
+     */
     protected void setSubTitle(String title) {
         if (tvSubTitle == null) {
             return;
@@ -86,6 +99,9 @@ public abstract class BaseFragment extends SupportFragment {
         tvSubTitle.setText(title);
     }
 
+    /**
+     * 显示返回按钮
+     */
     protected void enableBack() {
         if (ivBack == null) {
             return;
@@ -96,12 +112,24 @@ public abstract class BaseFragment extends SupportFragment {
         }
     }
 
+    /**
+     * 获取布局id，由子类实现
+     * @return
+     */
     protected abstract int getLayoutId();
-
+    /**
+     * 初始化布局，由子类实现
+     */
     protected abstract void initView();
 
+    /**
+     * 初始化数据，由子类实现
+     */
     protected abstract void initData();
 
+    /**
+     * 显示加载对话框
+     */
     protected void showLoading() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(getActivity(),R.style.ProgressDialog);
@@ -111,7 +139,11 @@ public abstract class BaseFragment extends SupportFragment {
             progressDialog.show();
         }
     }
-
+    /**
+     * 显示加载对话框
+     *
+     * @param text 提示文本
+     */
     protected void showLoading(String text) {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(getActivity(),R.style.ProgressDialog);
@@ -122,12 +154,19 @@ public abstract class BaseFragment extends SupportFragment {
         }
     }
 
+    /**
+     * 隐藏加载中对话框
+     */
     protected void hideLoading() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }
 
+    /**
+     * Toast提示
+     * @param msg
+     */
     protected void showToast(String msg) {
         if (!TextUtils.isEmpty(msg)) {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();

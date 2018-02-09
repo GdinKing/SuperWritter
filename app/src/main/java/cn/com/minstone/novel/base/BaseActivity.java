@@ -26,6 +26,9 @@ public abstract class BaseActivity extends SupportActivity {
     protected TextView tvRight;
     protected ImageView ivBack;
     protected ImageView ivRight;
+    /**
+     * 是否夜间模式
+     */
     protected boolean isNightMode= false;
 
     @Override
@@ -43,6 +46,9 @@ public abstract class BaseActivity extends SupportActivity {
         initView();
     }
 
+    /**
+     * 初始化标题视图
+     */
     protected void initTitle() {
         tvTitle = findViewById(R.id.tv_title);
         ivBack = findViewById(R.id.iv_back);
@@ -50,6 +56,10 @@ public abstract class BaseActivity extends SupportActivity {
         tvRight = findViewById(R.id.tv_right);
     }
 
+    /**
+     * 设置标题
+     * @param title
+     */
     protected void setTitle(String title) {
         if (tvTitle == null) {
             return;

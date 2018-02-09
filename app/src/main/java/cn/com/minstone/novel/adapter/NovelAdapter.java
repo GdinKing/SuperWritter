@@ -21,21 +21,32 @@ import cn.com.minstone.novel.util.DisplayUtil;
 import cn.com.minstone.novel.util.ImageUtil;
 
 /***
- * 名称：<br>
- * 描述：
- * 最近修改时间：
+ * 小说列表适配器
+ *
  * @since 2018/1/30
  * @author king
  */
 
 public class NovelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    /**
+     * 视图类型：添加
+     */
     public static final int VIEW_ADD = 0;
+    /**
+     * 视图类型：展示
+     */
     public static final int VIEW_SHOW = 1;
 
-
+    /**
+     * 删除模式
+     */
     public static final int MODE_DELETE = 0;
+    /**
+     * 普通模式
+     */
     public static final int MODE_NORMAL = 1;
+
     private List<Novel> dataList;
     private Context context;
     private List<Novel> selectList;
@@ -85,14 +96,14 @@ public class NovelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         int width = (DisplayUtil.getScreenWidth(context) - DisplayUtil.dip2px(context,70)) / 3;
         int height = width * 4 / 3;
         switch (viewType) {
-            case VIEW_SHOW:
+            case VIEW_SHOW://展示
                 view = LayoutInflater.from(context).inflate(R.layout.item_novel_list, parent, false);
                 view.getLayoutParams().width = width;
                 view.getLayoutParams().height = height;
 
                 holder = new ViewHolderShow(view);
                 break;
-            case VIEW_ADD:
+            case VIEW_ADD://添加按钮
                 view = LayoutInflater.from(context).inflate(R.layout.item_novel_add, parent, false);
                 view.getLayoutParams().width = width;
                 view.getLayoutParams().height = height;
