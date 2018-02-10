@@ -144,7 +144,6 @@ public class DraftFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     public boolean onBackPressedSupport() {
-
         pop();
         return true;
     }
