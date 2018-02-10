@@ -2,7 +2,7 @@
 
 本项目使用了以下第三方框架或平台：
 Fragmentation
- > github地址:https://github.com/YoKeyword/Fragmentation
+ > https://github.com/YoKeyword/Fragmentation
  
 Bmob后端云
  > http://doc.bmob.cn/data/android/
