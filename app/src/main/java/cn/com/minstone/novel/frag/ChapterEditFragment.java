@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 
 import com.mylhyl.circledialog.CircleDialog;
 
@@ -17,7 +18,6 @@ import cn.com.minstone.novel.base.BaseFragment;
 import cn.com.minstone.novel.bean.Chapter;
 import cn.com.minstone.novel.event.ChapterUpdateEvent;
 import cn.com.minstone.novel.util.DisplayUtil;
-import cn.com.minstone.novel.view.MyEditText;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
@@ -37,7 +37,7 @@ public class ChapterEditFragment extends BaseFragment implements View.OnClickLis
         return fragment;
     }
 
-    private MyEditText etContent;
+    private EditText etContent;
     private Chapter chapter;
     private String editContent;
 

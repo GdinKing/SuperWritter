@@ -83,6 +83,7 @@ public class NovelListFragment extends BaseFragment implements NovelAdapter.OnIt
         gridView.setLayoutManager(layoutManager);
         novelAdapter = new NovelAdapter(getActivity(), novelList);
         gridView.setAdapter(novelAdapter);
+        gridView.setHasFixedSize(true);
         novelAdapter.setItemClickListener(this);
         User user = BmobUser.getCurrentUser(User.class);
         ivRight.setVisibility(user != null ? View.VISIBLE : View.GONE);
@@ -206,13 +207,13 @@ public class NovelListFragment extends BaseFragment implements NovelAdapter.OnIt
         if (novelAdapter == null) {
             return;
         }
-        List<BmobObject> updateList = new ArrayList<>();
+
+        List<BmobObject> deleteList = new ArrayList<>();
         List<Novel> selectList = novelAdapter.getSelectList();
         for (Novel novel : selectList) {
-            novel.setDelete(true);
-            updateList.add(novel);
+            deleteList.add(novel);
         }
-        new BmobBatch().updateBatch(updateList).doBatch(new QueryListListener<BatchResult>() {
+        new BmobBatch().deleteBatch(deleteList).doBatch(new QueryListListener<BatchResult>() {
 
             @Override
             public void done(List<BatchResult> o, BmobException e) {

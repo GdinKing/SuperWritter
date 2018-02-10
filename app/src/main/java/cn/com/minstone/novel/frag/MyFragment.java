@@ -36,6 +36,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvName;
     private TextView tvSetting;
     private TextView tvPublish;
+    private TextView tvDraft;
 
     private User user;
 
@@ -58,6 +59,8 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         tvName = rootView.findViewById(R.id.tv_nickname);
         tvPublish = rootView.findViewById(R.id.tv_publish);
         tvSetting = rootView.findViewById(R.id.tv_settings);
+        tvDraft = rootView.findViewById(R.id.tv_draft);
+        tvDraft.setOnClickListener(this);
         tvPublish.setOnClickListener(this);
         tvSetting.setOnClickListener(this);
         toggleButton = rootView.findViewById(R.id.toggle_dark);
@@ -71,7 +74,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 SPUtil.setBoolean(getActivity(), AppConfig.NIGHT_MODE_KEY, true);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                SPUtil.setBoolean(getActivity(), AppConfig.NIGHT_MODE_KEY,false);
+                SPUtil.setBoolean(getActivity(), AppConfig.NIGHT_MODE_KEY, false);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
             getActivity().recreate();//需要重启Activity
@@ -108,6 +111,9 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.tv_settings:
                 ((MainFragment) getParentFragment()).openFragment(SettingFragment.newInstance());
+                break;
+            case R.id.tv_draft:
+                ((MainFragment) getParentFragment()).openFragment(DraftFragment.newInstance());
                 break;
 
         }

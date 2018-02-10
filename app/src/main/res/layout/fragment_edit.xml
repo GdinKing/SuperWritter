@@ -12,7 +12,7 @@
         android:layout_height="52dp" />
 
 
-    <cn.com.minstone.novel.view.MyEditText
+    <EditText
         android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +22,7 @@
         android:lineSpacingExtra="6dp"
         android:gravity="start"
         android:textColor="@color/black"
-        android:textSize="16sp"></cn.com.minstone.novel.view.MyEditText>
+        android:textSize="16sp"></EditText>
 
 
 

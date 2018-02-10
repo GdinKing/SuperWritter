@@ -131,4 +131,10 @@ public class ResetPwdFragment extends BaseFragment implements View.OnClickListen
         });
 
     }
+
+    @Override
+    public boolean onBackPressedSupport() {
+        pop();
+        return true;
+    }
 }

@@ -1,5 +1,9 @@
 package cn.com.minstone.novel.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /***
  * 字符串工具类
  *
@@ -17,6 +21,7 @@ public class StringUtil {
 
     /**
      * 生成随机字符
+     *
      * @param length
      * @return
      */
@@ -31,15 +36,17 @@ public class StringUtil {
 
     /**
      * 判断一个字符是否是中文
+     *
      * @param c
      * @return
      */
     public static boolean isChinese(char c) {
-        return c >= 0x4E00 &&  c <= 0x9FA5;// 根据字节码判断
+        return c >= 0x4E00 && c <= 0x9FA5;// 根据字节码判断
     }
 
     /**
      * 判断一个字符串是否含有中文
+     *
      * @param str
      * @return
      */
@@ -49,5 +56,21 @@ public class StringUtil {
             if (isChinese(c)) return true;// 有一个中文字符就返回
         }
         return false;
+    }
+
+    /**
+     * 格式化日期
+     * @param dateStr
+     * @return
+     */
+    public static String formatDate(String dateStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+            Date d = sdf.parse(dateStr);
+            return sdf.format(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dateStr;
     }
 }
