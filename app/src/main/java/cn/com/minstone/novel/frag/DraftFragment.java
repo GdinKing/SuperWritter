@@ -18,6 +18,7 @@ import cn.com.minstone.novel.R;
 import cn.com.minstone.novel.adapter.DraftAdapter;
 import cn.com.minstone.novel.base.BaseFragment;
 import cn.com.minstone.novel.bean.Chapter;
+import cn.com.minstone.novel.bean.Novel;
 import cn.com.minstone.novel.bean.User;
 import cn.com.minstone.novel.view.CustomRecyclerView;
 import cn.com.minstone.novel.view.ItemDivider;
@@ -73,15 +74,20 @@ public class DraftFragment extends BaseFragment implements SwipeRefreshLayout.On
         }
         refreshLayout.setRefreshing(true);
 
-
         BmobQuery<Chapter> chapterQuery = new BmobQuery<>();
-        chapterQuery.setLimit(1);
         chapterQuery.addWhereEqualTo("publish", false);//未发布，即为草稿
-        chapterQuery.include("novel");
+        chapterQuery.include("novel,novel.author");
         chapterQuery.order("-updatedAt");//更新时间排序，获取最新的一章
+
+        BmobQuery<Novel> innerQuery = new BmobQuery<>();
+        innerQuery.addWhereEqualTo("author", user);
+        chapterQuery.addWhereMatchesQuery("novel", "Novel", innerQuery);
+
+
         chapterQuery.findObjects(new FindListener<Chapter>() {
             @Override
             public void done(List<Chapter> list, BmobException e) {
+
                 refreshLayout.setRefreshing(false);
                 if (e != null) {
                     Log.e("king", e.getMessage(), e);
@@ -92,20 +98,35 @@ public class DraftFragment extends BaseFragment implements SwipeRefreshLayout.On
             }
         });
 
+
     }
+
 
     /**
      * 绑定数据
+     *
      * @param list
      */
     private void bindData(List<Chapter> list) {
+
         if (chapterList == null) {
             chapterList = new ArrayList<>();
         }
         chapterList.clear();
         for (Chapter chapter : list) {
-            if (chapter.getNovel() != null && !TextUtils.isEmpty(chapter.getNovel().getName())) {
-                chapterList.add(chapter);
+            if (chapter.getNovel() == null) {
+                continue;
+            }
+            if (!TextUtils.isEmpty(chapter.getNovel().getName())) {
+                boolean isOk = true;
+                for (Chapter c : chapterList) {
+                    if (c.getNovel().getObjectId().equals(chapter.getNovel().getObjectId())) {
+                        isOk = false;
+                    }
+                }
+                if (isOk) {
+                    chapterList.add(chapter);
+                }
             }
         }
         if (chapterList.isEmpty()) {
@@ -119,6 +140,7 @@ public class DraftFragment extends BaseFragment implements SwipeRefreshLayout.On
         } else {
             draftAdapter.refreshData(chapterList);
         }
+
         draftAdapter.setItemClickListener(this);
     }
 

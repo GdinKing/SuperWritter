@@ -154,7 +154,7 @@ public class ChapterEditFragment extends BaseFragment implements View.OnClickLis
         Chapter c = new Chapter();
         c.setContent(editContent);
         c.setPublish(isPublish);
-        c.setCount(editContent.replaceAll("\\s*", "").length());
+        c.setWords(editContent.replaceAll("\\s*", "").length());
         c.update(chapter.getObjectId(), new UpdateListener() {
             @Override
             public void done(BmobException e) {

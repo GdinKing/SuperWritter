@@ -17,6 +17,7 @@ public class Chapter extends BmobObject {
     private Book book;
     private String content;
     private Integer count;
+    private Integer words;
     private boolean publish;
 
     public Novel getNovel() {
@@ -57,6 +58,14 @@ public class Chapter extends BmobObject {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Integer getWords() {
+        return words;
+    }
+
+    public void setWords(Integer words) {
+        this.words = words;
     }
 
     public boolean isPublish() {

@@ -35,9 +35,11 @@ import cn.bmob.v3.listener.UploadFileListener;
 import cn.com.minstone.novel.R;
 import cn.com.minstone.novel.base.BaseFragment;
 import cn.com.minstone.novel.bean.User;
+import cn.com.minstone.novel.event.UserUpdateEvent;
 import cn.com.minstone.novel.util.DisplayUtil;
 import cn.com.minstone.novel.util.ImageUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
+import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 
 /***
  * 用户信息界面
@@ -59,6 +61,11 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     private File imageFile;
     private Uri imageUri;
+
+    /**
+     * 标识用户是否修改了信息
+     */
+    private boolean hasUpdate = false;
 
     public static UserInfoFragment newInstance() {
 
@@ -105,6 +112,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
+                if(hasUpdate){
+                    EventBusActivityScope.getDefault(getActivity()).post(new UserUpdateEvent());
+                }
                 pop();
                 break;
             case R.id.iv_avatar:
@@ -139,6 +149,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public boolean onBackPressedSupport() {
+        if(hasUpdate){
+            EventBusActivityScope.getDefault(getActivity()).post(new UserUpdateEvent());
+        }
         pop();
         return true;
     }
@@ -188,6 +201,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 }
                 showToast("修改成功");
                 tvNick.setText(nick);
+                hasUpdate = true;
             }
         });
     }
@@ -242,6 +256,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 }
                 showToast("修改成功");
                 tvSign.setText(sign);
+                hasUpdate = true;
             }
         });
     }
@@ -365,6 +380,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                     showToast("修改失败");
                     return;
                 }
+                hasUpdate = true;
                 showToast("修改成功");
                 ImageUtil.showImage(getActivity(), avatar.getFileUrl(), ivAvatar);
             }

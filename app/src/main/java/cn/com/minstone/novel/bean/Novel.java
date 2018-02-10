@@ -21,6 +21,7 @@ public class Novel extends BmobObject {
     private String role;
     private String outline;
     private boolean delete;
+    private boolean complete;
 
     public String getName() {
         return name;
@@ -84,5 +85,13 @@ public class Novel extends BmobObject {
 
     public void setDelete(boolean delete) {
         this.delete = delete;
+    }
+
+    public boolean isComplete() {
+        return complete;
+    }
+
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 }

@@ -16,6 +16,7 @@ import cn.com.minstone.novel.base.BaseFragment;
 import cn.com.minstone.novel.bean.User;
 import cn.com.minstone.novel.config.AppConfig;
 import cn.com.minstone.novel.event.LoginEvent;
+import cn.com.minstone.novel.event.UserUpdateEvent;
 import cn.com.minstone.novel.util.SPUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
@@ -128,6 +129,13 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             tvName.setText("登录/注册");
         }
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(UserUpdateEvent event) {
+        initData();
+
+    }
+
 
     @Override
     public void onDestroy() {

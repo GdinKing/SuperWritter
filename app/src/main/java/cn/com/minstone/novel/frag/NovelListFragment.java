@@ -6,7 +6,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mylhyl.circledialog.CircleDialog;
 
@@ -21,6 +20,7 @@ import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BatchResult;
+import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListListener;
@@ -101,7 +101,7 @@ public class NovelListFragment extends BaseFragment implements NovelAdapter.OnIt
         }
         refreshLayout.setRefreshing(true);
         BmobQuery<Novel> query = new BmobQuery<>();
-        query.addWhereEqualTo("author", user);
+        query.addWhereEqualTo("author", new BmobPointer(user));
         query.addWhereEqualTo("delete", false);
         query.include("author");
         query.order("-updatedAt");
@@ -111,7 +111,7 @@ public class NovelListFragment extends BaseFragment implements NovelAdapter.OnIt
                 refreshLayout.setRefreshing(false);
                 if (e != null) {
                     Log.e("king", e.getMessage(), e);
-                    Toast.makeText(getActivity(), "获取小说列表失败", Toast.LENGTH_SHORT).show();
+                    showToast("获取小说列表失败");
                     resetData();
                     return;
                 }

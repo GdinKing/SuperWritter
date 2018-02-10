@@ -28,8 +28,8 @@ import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 /**
  * 小说相关界面
  *
- * @since 2018/1/31
  * @author king
+ * @since 2018/1/31
  */
 
 public class NovelDescFragment extends BaseFragment implements View.OnClickListener {
@@ -158,7 +158,7 @@ public class NovelDescFragment extends BaseFragment implements View.OnClickListe
     //TODO BmobSDk有bug，统计不了字数
     private void loadCount() {
         BmobQuery<Chapter> query = new BmobQuery<>();
-        query.sum(new String[]{"count"});
+        query.max(new String[]{"words"});
         query.addWhereEqualTo("novel", new BmobPointer(novel));
         query.findStatistics(Chapter.class, new QueryListener<JSONArray>() {
 
@@ -170,9 +170,10 @@ public class NovelDescFragment extends BaseFragment implements View.OnClickListe
                     return;
                 }
                 if (ary != null) {//
+                    Log.i("king", ary.toString());
                     JSONObject obj = ary.optJSONObject(0);
                     if (obj != null) {
-                        int sum = obj.optInt("_sumCount");
+                        int sum = obj.optInt("_sumWords");
                         tvCount.setText(sum + "字");
                     }
                 } else {

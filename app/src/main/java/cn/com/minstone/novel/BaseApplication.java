@@ -1,6 +1,7 @@
 package cn.com.minstone.novel;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import cn.bmob.v3.Bmob;
 import cn.com.minstone.novel.util.CrashLogUtil;
@@ -27,5 +28,6 @@ public class BaseApplication extends Application {
 
         CrashLogUtil handler = CrashLogUtil.getInstance();
         handler.init(getApplicationContext());
+        MultiDex.install(this);
     }
 }

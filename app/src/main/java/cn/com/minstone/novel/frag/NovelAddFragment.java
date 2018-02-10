@@ -132,13 +132,12 @@ public class NovelAddFragment extends BaseFragment implements View.OnClickListen
                     return;
                 }
                 DisplayUtil.hideSoftKeyboard(getActivity(), etName);
-                showLoading();
-                if (imagePath != null) {
-                    uploadCover(imagePath);
+                showLoading("创建中");
+                if (TextUtils.isEmpty(imagePath)) {
+                    showToast("请上传封面");
                     return;
                 }
-
-                createNovel(name, introduction, null);
+                uploadCover(imagePath);
                 break;
         }
     }
